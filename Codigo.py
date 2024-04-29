@@ -55,6 +55,13 @@ def evaluar_modelo(model, X_test, y_test):
     y_pred = model.predict(X_test)
     mse = mean_squared_error(y_test, y_pred)
     rmse = np.sqrt(mse)
+    plt.figure(figsize=(8, 6))
+    plt.scatter(y_test, y_pred, alpha=0.5)
+    plt.title('Real vs Predicted Values')
+    plt.xlabel('Real Values')
+    plt.ylabel('Predicted Values')
+    plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'k--', lw=2)  # Línea de perfecta predicción
+    plt.show()
     return mse, rmse
 
 #Gonzalo Garcia
